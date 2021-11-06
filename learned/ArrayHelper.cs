@@ -64,15 +64,15 @@ namespace learned
         }
         public static void PrintArray<T>(T[,] arr, bool nextLine = false, bool lineOnTop = false)
         {
-            if (lineOnTop) Console.WriteLine();
+            if (lineOnTop) Console.WriteLine();            
             for (int i = 0; i < arr.GetLength(0); i++)
-            {
+            {               
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    Console.Write($"{arr[i, j]:f2}\t");
+                    Console.Write($"{arr[i, j]:f2} ");
                 }
                 Console.WriteLine();
-            }
+            }           
             if (nextLine) Console.WriteLine();
         }
     }

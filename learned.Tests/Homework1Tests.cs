@@ -16,7 +16,7 @@ namespace learned.Tests
             string actual = Homework1.GetHelloByeString(a, b);
             Assert.AreEqual(expected, actual);
         }
-        //[Test]
+        //[Test] //Оно не переполняется мб т.к. складываются внутри строки($)
         //public static void GetHelloByeStringNegativTest()
         //{
         //    Assert.Throws<ArgumentOutOfRangeException>(() => Homework1.GetHelloByeString(165, double.MaxValue));

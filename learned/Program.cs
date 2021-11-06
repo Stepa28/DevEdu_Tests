@@ -244,7 +244,7 @@ namespace learned
             IOHelper.PrintLine(78);
             Console.ReadKey();
 
-            A:
+            
             //---------------------------------------------------------------------------------------------------
             // Домашняя работа 5:
             //  Задание 1:
@@ -252,18 +252,12 @@ namespace learned
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Задание 1:");
             IOHelper.PrintLine(78);
-            while (true)
-            {
-                numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
-                int[] arr1 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);
-                ArrayHelper.PrintArray(arr1, true, true);
-                Console.WriteLine(string.Join(',', arr1));
-                Array.Sort(arr1);
-                Console.WriteLine(string.Join(',', arr1));
-                Homework5.GetNumberOfEvenAndOddElements(arr1, out int cntEven, out int cntOdd);
-                Console.WriteLine($"Чётных элементов массива: {cntEven}");
-                Console.WriteLine($"Нечётных элементов массива: {cntOdd}");
-            }
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
+            int[] arr1 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);
+            ArrayHelper.PrintArray(arr1, true, true);
+            Homework5.GetNumberOfEvenAndOddElements(arr1, out int cntEven, out int cntOdd);
+            Console.WriteLine($"Чётных элементов массива: {cntEven}");
+            Console.WriteLine($"Нечётных элементов массива: {cntOdd}");
             IOHelper.PrintLine(78);
 
             //  Задание 2:
@@ -364,24 +358,24 @@ namespace learned
             numIntTwo = IOHelper.SaveInput(1, int.MaxValue, "Введите число столбцов массива");
             int[,] arr1Tws = ArrayHelper.GenerateArrayInt(1, 999, numInt, numIntTwo);            
             ArrayHelper.PrintArray(arr1Tws,true,true);           
-            ArrayHelper.PrintArray(Homework6.Task1(arr1Tws));
+            ArrayHelper.PrintArray(Homework6.InversionFrame(arr1Tws));
             IOHelper.PrintLine(78);
 
             //  Задание 2:
             Console.WriteLine("\nЗадание 2:");
             IOHelper.PrintLine(78);
-            int[,] arrSmarter = Homework6.Task2(9);
+            int[,] arrSmarter = Homework6.MultiplicationTable(9);
             ArrayHelper.PrintArray(arrSmarter);
             IOHelper.PrintLine(78);
-
+            
             //  Задание 3:
             Console.WriteLine("\nЗадание 3:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите размер квадратной матрицы");
-            char[,] arr3Tws = Homework6.Task3(numInt);            
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите размер шахматной доски");
+            char[,] arr3Tws = Homework6.GetChessBoard(numInt);            
             ArrayHelper.PrintArray(arr3Tws,false,true);
             IOHelper.PrintLine(78);
-
+            
             //  Задание 4:
             Console.WriteLine("\nЗадание 4:");
             IOHelper.PrintLine(78);
@@ -389,15 +383,15 @@ namespace learned
             numIntTwo = IOHelper.SaveInput(1, int.MaxValue, "Введите число столбцов массива");
             int[,] arr4Tws = ArrayHelper.GenerateArrayInt(0, 1, numInt, numIntTwo);          
             ArrayHelper.PrintArray(arr4Tws,true,true);         
-            Console.WriteLine(Homework6.Task4(arr4Tws) ? "Антиковидное правило не соблюдается" : "Антиковидное правило соблюдается");
+            Console.WriteLine(Homework6.RespectedAntiqueRules(arr4Tws) ? "Антиковидное правило не соблюдается" : "Антиковидное правило соблюдается");
             IOHelper.PrintLine(78);
-
+            
             //  Задание 5:
             Console.WriteLine("\nЗадание 5:");
             IOHelper.PrintLine(78);            
             double[,] arr5Tws = ArrayHelper.GenerateArrayDouble(100000, 1000000, 10, 6);
             ArrayHelper.PrintArray(arr5Tws,true);
-            Homework6.Task5(arr5Tws, out double min5, out double max5, out double[] sumMonths, out double[] sumOneShop);            
+            var(min5, max5, sumMonths, sumOneShop) = Homework6.GetStoreIncome(arr5Tws);            
             for (int i = 0; i < arr5Tws.GetLength(0); i++)
             {
                 Console.WriteLine($"Сумарный доход в {i + 1} магазине равен: {sumOneShop[i]:f2}");
@@ -418,15 +412,14 @@ namespace learned
             numIntTwo = IOHelper.SaveInput(1, int.MaxValue, "Введите число столбцов массива");
             int[,] arr6Tws = ArrayHelper.GenerateArrayInt(-99, 99, numInt, numIntTwo);         
             ArrayHelper.PrintArray(arr6Tws,true,true);
-            Console.WriteLine($"Количество элементов массива, которые больше всех своих соседей одновременно: {Homework6.Task6(arr6Tws)}");            
+            Console.WriteLine($"Количество элементов массива, которые больше всех своих соседей одновременно: {Homework6.GetMoreThanTheirNeighors(arr6Tws)}");            
             IOHelper.PrintLine(78);
-
+            A:
             //  Задание 7:
             Console.WriteLine("\nЗадание 7:");
             IOHelper.PrintLine(78);
             numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите размер квадратной матрицы");
-            char[,] arr7Tws = new char[numInt, numInt];            
-            Homework6.Task7(arr7Tws);    
+            char[,] arr7Tws = Homework6.GetHourglass(numInt);
             ArrayHelper.PrintArray(arr7Tws,false,true);
             IOHelper.PrintLine(78);
 
@@ -443,10 +436,10 @@ namespace learned
             ArrayHelper.PrintArray(arr8TwoTws,true);
             try
             {
-                int[,] arr8ThreeTws = Homework6.Task8(arr8OneTws, arr8TwoTws);
+                int[,] arr8ThreeTws = Homework6.MultiplicationMatrix(arr8OneTws, arr8TwoTws);
                 ArrayHelper.PrintArray(arr8ThreeTws);
             }
-            catch (Exception e)
+            catch (ArgumentException e)
             {
                 Console.WriteLine(e.Message);
             }
