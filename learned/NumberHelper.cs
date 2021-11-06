@@ -6,7 +6,7 @@ namespace learned
 {
     class NumberHelper
     {
-        public static sbyte[] GetDecompositionNumber(int num)
+        public static sbyte[] GetDecompositionNumber(int num) //зарложение числа на цифры по разрядам
         {
             sbyte[] arr = new sbyte[NumberHelper.GetIntLength(num)];
             for (int i = 0; i < arr.Length; i++)
@@ -17,7 +17,7 @@ namespace learned
             return arr;
         }
 
-        public static int GetMirrorNumber(int num)
+        public static int GetMirrorNumber(int num) //зеркальное отражение числа
         {
             sbyte[] arr = NumberHelper.GetDecompositionNumber(num);
             int newNum = 0;
@@ -28,7 +28,7 @@ namespace learned
             return newNum;
         }
 
-        public static int GetIntLength(int num)
+        public static int GetIntLength(int num) //вычисление длинны int'овой переменой
         {
             int k = 0;
             while (Math.Abs(num) > 0) { k++; num /= 10;}

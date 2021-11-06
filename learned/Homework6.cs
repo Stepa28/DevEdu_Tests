@@ -132,9 +132,9 @@ namespace learned
             return arr;
         }
 
-        public static int[,] MultiplicationMatrix(int[,] arrOne, int[,] arrTwo)
+        public static long[,] MultiplicationMatrix(int[,] arrOne, int[,] arrTwo)
         {
-            int[,] arrThree = new int[arrOne.GetLength(0), arrTwo.GetLength(1)];
+            long[,] arrThree = new long[arrOne.GetLength(0), arrTwo.GetLength(1)];
             if (arrOne.GetLength(1) != arrTwo.GetLength(0))
             {
                 throw new ArgumentException("Умножение не возможно! Количество столбцов первой матрицы не равно количеству строк второй матрицы.");

@@ -6,8 +6,7 @@ namespace learned
     {
 
         static void Main(string[] args)
-        {
-            goto A;
+        {            
             Console.ForegroundColor = ConsoleColor.Blue;
             // Домашняя работа 1:
             //  Задание 1:
@@ -414,7 +413,7 @@ namespace learned
             ArrayHelper.PrintArray(arr6Tws,true,true);
             Console.WriteLine($"Количество элементов массива, которые больше всех своих соседей одновременно: {Homework6.GetMoreThanTheirNeighors(arr6Tws)}");            
             IOHelper.PrintLine(78);
-            A:
+            
             //  Задание 7:
             Console.WriteLine("\nЗадание 7:");
             IOHelper.PrintLine(78);
@@ -436,7 +435,7 @@ namespace learned
             ArrayHelper.PrintArray(arr8TwoTws,true);
             try
             {
-                int[,] arr8ThreeTws = Homework6.MultiplicationMatrix(arr8OneTws, arr8TwoTws);
+                long[,] arr8ThreeTws = Homework6.MultiplicationMatrix(arr8OneTws, arr8TwoTws);
                 ArrayHelper.PrintArray(arr8ThreeTws);
             }
             catch (ArgumentException e)

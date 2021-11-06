@@ -72,7 +72,7 @@ namespace learned
         public static int FindingTheCubeRoot(int num)
         {
             if (num < 0)
-                throw new ArgumentException("Число должно быть положительным");
+                throw new ArgumentException("Число должно быть положительным");         
             int min = 0, max = (int)Math.Pow(int.MaxValue,1.0/3), midle = -1;
             while (Math.Pow(midle, 3) != num)
             {

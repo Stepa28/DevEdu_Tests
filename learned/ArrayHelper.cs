@@ -69,7 +69,7 @@ namespace learned
             {               
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    Console.Write($"{arr[i, j]:f2} ");
+                    Console.Write($"{arr[i, j]:f2}\t");
                 }
                 Console.WriteLine();
             }           
