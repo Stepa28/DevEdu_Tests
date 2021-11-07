@@ -3,7 +3,7 @@ using System;
 
 namespace learned.Tests
 {
-    public class Homework1Tests
+    public static class Homework1Tests
     {
         //Задание 1
         [TestCase(10, 2.5, "привет, 10!\n10 + 2,5 = 12,5\nпока, 2,5...")]
@@ -16,11 +16,6 @@ namespace learned.Tests
             string actual = Homework1.GetHelloByeString(a, b);
             Assert.AreEqual(expected, actual);
         }
-        //[Test] //Оно не переполняется мб т.к. складываются внутри строки($)
-        //public static void GetHelloByeStringNegativTest()
-        //{
-        //    Assert.Throws<ArgumentOutOfRangeException>(() => Homework1.GetHelloByeString(165, double.MaxValue));
-        //}
 
         //Задание 2
         [TestCase(49.5, 15.7, -1804.8763343195264)]

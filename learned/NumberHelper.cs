@@ -4,7 +4,7 @@ namespace learned
 {
     class NumberHelper
     {
-        public static sbyte[] GetDecompositionNumber(int num) //зарложение числа на цифры по разрядам
+        public static sbyte[] GetDecompositionNumber(int num) //разложение числа на цифры по разрядам
         {
             sbyte[] arr = new sbyte[GetIntLength(num)];
             for (int i = 0; i < arr.Length; i++)
@@ -32,8 +32,7 @@ namespace learned
             return k;
         }
 
-        public static void Swap(ref int a,ref int b) => (a, b) = (b, a);
-        public static void Swap(ref double a, ref double b) => (a, b) = (b, a);
+        public static void Swap<T>(ref T a,ref T b) => (a, b) = (b, a);        
     }
 
 }

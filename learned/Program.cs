@@ -2,7 +2,7 @@
 
 namespace learned
 {
-    class Program
+    class  Program
     {
 
         static void Main(string[] args)
@@ -22,7 +22,7 @@ namespace learned
             IOHelper.PrintLine(78);
             numDouble = IOHelper.SaveInput(double.MinValue, double.MaxValue, "Введите число а");
             double numDoubleTwo = IOHelper.SaveInput(double.MinValue, double.MaxValue, "Введите число b");
-            Console.WriteLine($"Решение уровнения: {Homework1.EquationSolution(numDouble, numDoubleTwo)}");
+            Console.WriteLine($"Решение уравнения: {Homework1.EquationSolution(numDouble, numDoubleTwo)}");
             IOHelper.PrintLine(78);
 
             //  Задание 3:
@@ -42,7 +42,7 @@ namespace learned
             numDouble = IOHelper.SaveInput(double.MinValue, double.MaxValue, "Введите число a");
             numDoubleTwo = IOHelper.SaveInput(double.MinValue, double.MaxValue, "Введите число b");
             double numDoubleThree = IOHelper.SaveInput(double.MinValue, double.MaxValue, "Введите число c");
-            Console.WriteLine($"Искомое число Х = {Homework1.FirstDegreeEquationSolution(numDouble, double.MaxValue, double.MinValue)}");
+            Console.WriteLine($"Искомое число Х = {Homework1.FirstDegreeEquationSolution(numDouble, numDoubleTwo, numDoubleThree)}");
             IOHelper.PrintLine(78);
             Console.ReadKey();
 
@@ -85,7 +85,7 @@ namespace learned
             Console.WriteLine("\nЗадание 5:");
             IOHelper.PrintLine(78);
             numDouble = IOHelper.SaveInput(double.MinValue, double.MaxValue, "Введите вещественное число");
-            Console.WriteLine(Homework2.GetZeroFractionalPart(numDouble) ? "Дробная чать нулевая" : "Дробная часть не нулевая");
+            Console.WriteLine(Homework2.GetZeroFractionalPart(numDouble) ? "Дробная часть нулевая" : "Дробная часть не нулевая");
             IOHelper.PrintLine(78);
             Console.ReadKey();
             
@@ -151,7 +151,7 @@ namespace learned
             Console.WriteLine("\nЗадание 6:");
             IOHelper.PrintLine(78);
             numDouble = IOHelper.SaveInput( 0d, double.MaxValue, "Введите первую сторону");
-            numDoubleTwo = IOHelper.SaveInput( 0d, double.MaxValue, "Введите вротую сторону");
+            numDoubleTwo = IOHelper.SaveInput( 0d, double.MaxValue, "Введите вторую сторону");
             numDoubleThree = IOHelper.SaveInput( 0d, double.MaxValue, "Введите третью сторону");
             Console.WriteLine(Homework3.IsRectangle(numDouble, numDoubleTwo, numDoubleThree) ? "Треугольник существует" : "Треугольник не существует");
             IOHelper.PrintLine(78);
@@ -174,7 +174,7 @@ namespace learned
             Console.WriteLine("\nЗадание 2:");
             IOHelper.PrintLine(78);
             numInt = IOHelper.SaveInput(1, 10000, "Введите число");
-            Console.WriteLine($"Кол-во положительных чецлых чисел, квадтар которых меньше {numInt}: {Homework4.GetNumbersLessThanASquare(numInt)}");
+            Console.WriteLine($"Кол-во положительных целых чисел, квадрат которых меньше {numInt}: {Homework4.GetNumbersLessThanASquare(numInt)}");
             IOHelper.PrintLine(78);
 
             //  Задание 3:
@@ -187,16 +187,16 @@ namespace learned
             //  Задание 4:
             Console.WriteLine("\nЗадание 4:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(int.MinValue, int.MaxValue, "Введите первое число диапозона");
-            int numIntTwo = IOHelper.SaveInput(int.MinValue, int.MaxValue, "Введите второе число диапозона");
-            Console.WriteLine($"Сумма чисел из диапозона кратных 7 = {Homework4.GetSumOfMultiplesOf7InARange(numInt, numIntTwo)}");
+            numInt = IOHelper.SaveInput(int.MinValue, int.MaxValue, "Введите первое число диапазона");
+            int numIntTwo = IOHelper.SaveInput(int.MinValue, int.MaxValue, "Введите второе число диапазона");
+            Console.WriteLine($"Сумма чисел из диапазона кратных 7 = {Homework4.GetSumOfMultiplesOf7InARange(numInt, numIntTwo)}");
             IOHelper.PrintLine(78);
 
             //  Задание 5:
             Console.WriteLine("\nЗадание 5:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, 999, "Введите первое число, для нахождения макс. общего дилителя");
-            numIntTwo = IOHelper.SaveInput(1, 999, "Введите второе число, для нахождения макс. общего дилителя");
+            numInt = IOHelper.SaveInput(1, 999, "Введите первое число, для нахождения макс. общего делителя");
+            numIntTwo = IOHelper.SaveInput(1, 999, "Введите второе число, для нахождения макс. общего делителя");
             Console.WriteLine($"Наибольший общий делитель = {Homework4.FindingTheCommonDivisor(numInt, numIntTwo)}");
             IOHelper.PrintLine(78);
 
@@ -251,7 +251,7 @@ namespace learned
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Задание 1:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину массива");
             int[] arr1 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);
             ArrayHelper.PrintArray(arr1, true, true);
             Homework5.GetNumberOfEvenAndOddElements(arr1, out int cntEven, out int cntOdd);
@@ -262,7 +262,7 @@ namespace learned
             //  Задание 2:
             Console.WriteLine("\nЗадание 2:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину массива");
             int[] arr2 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);            
             ArrayHelper.PrintArray(arr2,true,true);
             Homework5.ReplaceThirdItemWithTheSumOfThePreviousTwo(arr2);            
@@ -272,9 +272,9 @@ namespace learned
             //  Задание 3:
             Console.WriteLine("\nЗадание 3:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну первого массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину первого массива");
             int[] arr3One = ArrayHelper.GenerateArrayInt(-99, 99, numInt);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну второго массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину второго массива");
             int[] arr3Two = ArrayHelper.GenerateArrayInt(-99, 99, numInt);            
             ArrayHelper.PrintArray(arr3One,true,true);            
             ArrayHelper.PrintArray(arr3Two,true);            
@@ -285,7 +285,7 @@ namespace learned
             //  Задание 4:
             Console.WriteLine("\nЗадание 4:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину массива");
             int[] arr4 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);            
             ArrayHelper.PrintArray(arr4,true,true);
             Homework5.SwapFirstAndSecondHalfArray(arr4);         
@@ -295,7 +295,7 @@ namespace learned
             //  Задание 5:
             Console.WriteLine("\nЗадание 5:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину массива");
             int[] arr5 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);          
             ArrayHelper.PrintArray(arr5,false,true);
             numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите на сколько сдвинуть массив вправо");
@@ -306,7 +306,7 @@ namespace learned
             //  Задание 6:
             Console.WriteLine("\nЗадание 6:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину массива");
             int[] arr6 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);
             ArrayHelper.PrintArray(arr6,true,true);
             Homework5.SwapEvenAndOddPosition(arr6);            
@@ -316,7 +316,7 @@ namespace learned
             //  Задание 7:
             Console.WriteLine("\nЗадание 7:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину массива");
             int[] arr7 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);
             ArrayHelper.PrintArray(arr7,true,true);          
             var (max7, sumAfterZero) = Homework5.FindingAbsMaxAndSumAfterZero(arr7);
@@ -327,7 +327,7 @@ namespace learned
             //  Задание 8:
             Console.WriteLine("\nЗадание 8:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину массива");
             int[] arr8 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);
             ArrayHelper.PrintArray(arr8,true,true);
             arr8 = Homework5.ShortInsert(arr8);            
@@ -337,7 +337,7 @@ namespace learned
             //  Задание 9:
             Console.WriteLine("\nЗадание 9:");
             IOHelper.PrintLine(78);
-            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длинну массива");
+            numInt = IOHelper.SaveInput(1, int.MaxValue, "Введите длину массива");
             int[] arr9 = ArrayHelper.GenerateArrayInt(-99, 99, numInt);
             ArrayHelper.PrintArray(arr9,true,true);
             Homework5.ShortSelect(arr9);            
@@ -393,7 +393,7 @@ namespace learned
             var(min5, max5, sumMonths, sumOneShop) = Homework6.GetStoreIncome(arr5Tws);            
             for (int i = 0; i < arr5Tws.GetLength(0); i++)
             {
-                Console.WriteLine($"Сумарный доход в {i + 1} магазине равен: {sumOneShop[i]:f2}");
+                Console.WriteLine($"Суммарный доход в {i + 1} магазине равен: {sumOneShop[i]:f2}");
             }
             Console.WriteLine();
             for(int i = 0; i < arr5Tws.GetLength(1); i++)

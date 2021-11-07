@@ -15,10 +15,8 @@ namespace learned
             return (a * 5 + Math.Pow(b, 4)) / (b - a);
         }
 
-        public static void SwapStrings(ref string s1,ref string s2)
-        {
-            (s1, s2) = (s2, s1);
-        }
+        public static void SwapStrings(ref string s1,ref string s2) =>        
+            NumberHelper.Swap(ref s1, ref s2);       
 
 
         public static double FirstDegreeEquationSolution(double a, double b, double c)
