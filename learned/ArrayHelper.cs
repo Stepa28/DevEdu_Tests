@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace learned
 {
@@ -55,10 +53,8 @@ namespace learned
         public static void PrintArray<T>(T[] arr, bool nextLine = false, bool lineOnTop = false)
         {
             if (lineOnTop) Console.WriteLine();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                Console.Write($"{arr[i]} ");
-            }
+            foreach (T t in arr)
+                Console.Write($"{t} ");
             Console.WriteLine();
             if (nextLine) Console.WriteLine();
         }
@@ -68,9 +64,7 @@ namespace learned
             for (int i = 0; i < arr.GetLength(0); i++)
             {               
                 for (int j = 0; j < arr.GetLength(1); j++)
-                {
                     Console.Write($"{arr[i, j]:f2}\t");
-                }
                 Console.WriteLine();
             }           
             if (nextLine) Console.WriteLine();

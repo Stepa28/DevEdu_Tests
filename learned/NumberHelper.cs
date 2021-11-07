@@ -8,7 +8,7 @@ namespace learned
     {
         public static sbyte[] GetDecompositionNumber(int num) //зарложение числа на цифры по разрядам
         {
-            sbyte[] arr = new sbyte[NumberHelper.GetIntLength(num)];
+            sbyte[] arr = new sbyte[GetIntLength(num)];
             for (int i = 0; i < arr.Length; i++)
             {
                 arr[i] = (sbyte)(num % 10);
@@ -19,12 +19,11 @@ namespace learned
 
         public static int GetMirrorNumber(int num) //зеркальное отражение числа
         {
-            sbyte[] arr = NumberHelper.GetDecompositionNumber(num);
+            sbyte[] arr = GetDecompositionNumber(num);
             int newNum = 0;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                newNum = newNum * 10 + arr[i];
-            }
+            foreach (sbyte elem in arr)
+                newNum = newNum * 10 + elem;
+
             return newNum;
         }
 
@@ -35,18 +34,8 @@ namespace learned
             return k;
         }
 
-        public static void Swap(ref int a,ref int b)
-        {
-            var tmp = a;
-            a = b;
-            b = tmp;            
-        }
-        public static void Swap(ref double a, ref double b)
-        {
-            var tmp = a;
-            a = b;
-            b = tmp;
-        }
+        public static void Swap(ref int a,ref int b) => (a, b) = (b, a);
+        public static void Swap(ref double a, ref double b) => (a, b) = (b, a);
     }
 
 }
