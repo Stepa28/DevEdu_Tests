@@ -16,28 +16,25 @@ namespace learned
                 throw new ArgumentException("Входное А < 0");
             int[] arr = new int[1000 / num];
             int count = 0;
-            for (int i = num; i <= 1000; i+= num)
+            for (int i = num; i <= 1000; i += num)
             {
                 arr[count] = i;
                 count++;
-            }            
+            }
+
             return arr;
         }
 
-        public static int GetNumbersLessThanASquare(int num) 
+        public static int GetNumbersLessThanASquare(int num)
         {
-            return (int)(Math.Sqrt(num)); 
+            return (int)(Math.Sqrt(num));
         }
 
         public static int GetGreatestDivisor(int num)
-        {            
+        {
             for (int i = num / 2; i >= 2; i--)
-            {
                 if (num % i == 0)
-                {
-                    return i;                    
-                }
-            }
+                    return i;
             return 1;
         }
 
@@ -50,8 +47,9 @@ namespace learned
                 {
                     sum += i;
                     i += 6;
-                }                  
+                }
             }
+
             return sum;
         }
 
@@ -66,14 +64,15 @@ namespace learned
                 else
                     b -= a;
             }
+
             return a;
         }
 
         public static int FindingTheCubeRoot(int num)
         {
             if (num < 0)
-                throw new ArgumentException("Число должно быть положительным");         
-            int min = 0, max = (int)Math.Pow(int.MaxValue,1.0/3), midle = -1;
+                throw new ArgumentException("Число должно быть положительным");
+            int min = 0, max = (int)Math.Pow(int.MaxValue, 1.0 / 3), midle = -1;
             while (Math.Pow(midle, 3) != num)
             {
                 midle = (min + max) / 2;
@@ -82,19 +81,21 @@ namespace learned
                 if (Math.Pow(midle, 3) > num)
                     max = midle;
                 else
-                    min = midle;                
+                    min = midle;
             }
+
             return midle;
         }
 
         public static int GetNumberOfOddDigits(int num)
         {
             int coutOdd = 0;
-            sbyte[] arr = NumberHelper.GetDecompositionNumber(num);            
-            for(int i = 0; i < arr.Length; i++)
+            sbyte[] arr = NumberHelper.GetDecompositionNumber(num);
+            for (int i = 0; i < arr.Length; i++)
             {
                 if (Math.Abs(arr[i]) % 2 == 1) coutOdd++;
-            }            
+            }
+
             return coutOdd;
         }
 
@@ -113,35 +114,34 @@ namespace learned
             {
                 sbyte[] arr = NumberHelper.GetDecompositionNumber(i);
                 int sumEven = 0;
-                int sumOdd = 0;    
-                for (int j = 0; j < arr.Length; j++)
+                int sumOdd = 0;
+                foreach (sbyte elem in arr)
                 {
-                    if (arr[j]%2==0) sumEven += arr[j];
-                    else sumOdd += arr[j];
-                }                
+                    if (elem % 2 == 0) sumEven += elem;
+                    else sumOdd += elem;
+                }
+
                 if (sumEven > sumOdd)
                 {
                     arrTmp[count] = i;
                     count++;
-                }                    
+                }
             }
+
             int[] arrTwo = new int[count];
             Array.Copy(arrTmp, arrTwo, count);
             return arrTwo;
         }
 
-        public static bool GetThereSameNumbers(int numOne, int numTwo) 
+        public static bool GetThereSameNumbers(int numOne, int numTwo)
         {
             sbyte[] arrOne = NumberHelper.GetDecompositionNumber(Math.Abs(numOne));
             sbyte[] arrTwo = NumberHelper.GetDecompositionNumber(Math.Abs(numTwo));
-            for (int i = 0; i < arrOne.Length; i++)
-            {
-                for(int j = 0; j < arrTwo.Length; j++)
-                {
-                    if (arrOne[i] == arrTwo[j])
-                        return true;
-                }
-            }
+            foreach (sbyte one in arrOne)
+            foreach (sbyte two in arrTwo)
+                if (one == two)
+                    return true;
+
             return false;
         }
     }

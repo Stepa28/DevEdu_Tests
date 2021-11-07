@@ -32,10 +32,11 @@ namespace learned
 
         public static double[] SortingThreeNumbers(double a, double b, double c)
         {
-            double[] arr = new double[3];
-            arr[2] = a > b ? a > c ? a : c : b > c ? b : c; //Max
-            arr[0] = a < b ? a < c ? a : c : b < c ? b : c; //Min
-            arr[1] = a == arr[2] ? Math.Max(b, c) : b == arr[2] ? Math.Max(a, c) : Math.Max(a, b); //Midle
+            double[] arr = new[] {a, b, c};
+            Array.Sort(arr);
+            // arr[2] =  Math.Max(a, Math.Max(b, c)); //Max
+            // arr[0] = Math.Min(a, Math.Min(b, c)); //Min
+            // arr[1] = a == arr[2] ? Math.Max(b, c) : b == arr[2] ? Math.Max(a, c) : Math.Max(a, b); //Midle
             return arr;           
         }
 

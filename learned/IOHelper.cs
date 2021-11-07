@@ -17,24 +17,23 @@ namespace learned
             } while (num < min_value || num > max_value || !flag);
             return num;
         }
-        public static double SaveInput(double min_value, double max_value, string message)
+        public static double SaveInput(double minValue, double maxValue, string message)
         {
             bool flag;
             double num;
             do
             {
-                Console.Write($"{message} [{min_value} - {max_value}]: ");
-                flag = double.TryParse(Console.ReadLine().Trim(), out num);
-            } while (num < min_value || num > max_value || !flag);
+                Console.Write($"{message} [{minValue} - {maxValue}]: ");
+                flag = double.TryParse(Console.ReadLine()?.Trim(), out num);
+            } while (num < minValue || num > maxValue || !flag);
             return num;
         }
         public static void PrintLine(int length)
         {
             Console.Write('+');
             for (int i= 0; i < length; i++)
-            {
                 Console.Write('-');
-            }
+
             Console.WriteLine('+');
 
         }
