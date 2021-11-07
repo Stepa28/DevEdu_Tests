@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace learned
 {
@@ -14,6 +12,7 @@ namespace learned
             sbyte[] arr = NumberHelper.GetDecompositionNumber(num);
             foreach (sbyte t in arr)
                 sum += t;
+
             return sum;
         }
 
@@ -22,6 +21,7 @@ namespace learned
             if (Math.Abs(x) > Math.Sqrt(double.MaxValue) || Math.Abs(y) > Math.Sqrt(double.MaxValue) ||
                 Math.Abs(rad) > Math.Sqrt(double.MaxValue))
                 throw new ArgumentOutOfRangeException("Переполнение переменной");
+
             return Math.Pow(x, 2) + Math.Pow(y, 2) <= Math.Pow(rad, 2);
         }
 
@@ -30,6 +30,7 @@ namespace learned
             if (Math.Abs(num) < 100 || Math.Abs(num) > 999)
                 throw new ArgumentOutOfRangeException("Число не трёхзначное");
             sbyte[] arr = NumberHelper.GetDecompositionNumber(Math.Abs(num));
+
             return arr[1] <= arr[2] && arr[1] > arr[0];
         }
 
@@ -37,9 +38,11 @@ namespace learned
         {
             if (Math.Abs(num) < 100 || Math.Abs(num) > 999)
                 throw new ArgumentOutOfRangeException("Число не трёхзначное");
+
             return NumberHelper.GetMirrorNumber(num);
         }
 
-        public static bool GetZeroFractionalPart(double num) => num == (int)num;
+        public static bool GetZeroFractionalPart(double num) => 
+            num == (int)num;
     }
 }

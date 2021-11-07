@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace learned
 {
     public class Homework1
     {
-        public static string GetHelloByeString(int a, double b) => $"привет, {a}!\n{a} + {b} = {a + b}\nпока, {b}...";
+        public static string GetHelloByeString(int a, double b) => 
+            $"привет, {a}!\n{a} + {b} = {a + b}\nпока, {b}...";
 
         public static double EquationSolution(double a, double b)
         {
             if (b - a == 0)
                 throw new DivideByZeroException("Деление на ноль");
+
             return (a * 5 + Math.Pow(b, 4)) / (b - a);
         }
 
@@ -25,6 +25,7 @@ namespace learned
         {
             if (a == 0)
                 throw new DivideByZeroException("Деление на ноль");
+
             return (c - b) / a;
         }
     }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace learned
 {
@@ -25,10 +23,8 @@ namespace learned
             return arr;
         }
 
-        public static int GetNumbersLessThanASquare(int num)
-        {
-            return (int)(Math.Sqrt(num));
-        }
+        public static int GetNumbersLessThanASquare(int num) =>
+            (int)(Math.Sqrt(num));
 
         public static int GetGreatestDivisor(int num)
         {
@@ -91,18 +87,14 @@ namespace learned
         {
             int coutOdd = 0;
             sbyte[] arr = NumberHelper.GetDecompositionNumber(num);
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (Math.Abs(arr[i]) % 2 == 1) coutOdd++;
-            }
+            for (int i = 0; i < arr.Length; i++)            
+                if (Math.Abs(arr[i]) % 2 == 1) coutOdd++;            
 
             return coutOdd;
         }
 
-        public static int GetMirrorNumber(int num)
-        {
-            return NumberHelper.GetMirrorNumber(num);
-        }
+        public static int GetMirrorNumber(int num) =>
+            NumberHelper.GetMirrorNumber(num);        
 
         public static int[] GetNubbersInRangeSumEvenDigitsGreaterOdd(int num)
         {
@@ -110,6 +102,7 @@ namespace learned
                 throw new ArgumentException("Неверное входное значение");
             int[] arrTmp = new int[num];
             int count = 0;
+
             for (int i = 1; i <= num; i++)
             {
                 sbyte[] arr = NumberHelper.GetDecompositionNumber(i);

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace learned
 {
@@ -34,10 +32,8 @@ namespace learned
                 throw new ArgumentException("Недопустимый размер матрицы");
             int[,] arr = new int[size, size];
             for (int i = 0; i < arr.GetLength(0); i++)
-            {
                 for (int j = 0; j < arr.GetLength(1); j++)
-                    arr[i, j] = (i + 1) * (j + 1);
-            }
+                    arr[i, j] = (i + 1) * (j + 1);            
 
             return arr;
         }
@@ -47,25 +43,20 @@ namespace learned
             if (size < 0)
                 throw new ArgumentException("Недопустимый размер матрицы");
             char[,] arr = new char[size, size];
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
+            
+            for (int i = 0; i < arr.GetLength(0); i++)            
+                for (int j = 0; j < arr.GetLength(1); j++)                
                     arr[i, j] = ((arr.GetLength(0) - i) + j + 1) % 2 == 0 ? '0' : '1';
-                }
-            }
 
             return arr;
         }
 
         public static bool RespectedAntiqueRules(int[,] arr)
         {
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
+            for (int i = 0; i < arr.GetLength(0); i++)            
                 for (int j = 1; j < arr.GetLength(1) - 1; j++)
                     if (arr[i, j] == 1 && (arr[i, j - 1] == 1 || arr[i, j + 1] == 1))
-                        return true;
-            }
+                        return true;            
 
             return false;
         }
@@ -77,8 +68,7 @@ namespace learned
             double[] sumMonths = new double[arr.GetLength(1)];
             double[] sumOneShop = new double[arr.GetLength(0)];
 
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
+            for (int i = 0; i < arr.GetLength(0); i++)            
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
                     sumOneShop[i] += arr[i, j];
@@ -87,8 +77,7 @@ namespace learned
                     if (min > arr[i, j]) min = arr[i, j];
                     sumOneShop[i] = Math.Round(sumOneShop[i], 9);
                     sumMonths[j] = Math.Round(sumMonths[j], 9);
-                }
-            }
+                }            
 
             return (min, max, sumMonths, sumOneShop);
         }
@@ -96,21 +85,17 @@ namespace learned
         public static int GetMoreThanTheirNeighors(int[,] arr)
         {
             int cntMax = 0;
-            if (arr.Length != 1)
-            {
-                for (int i = 0; i < arr.GetLength(0); i++)
-                {
+            if (arr.Length != 1)            
+                for (int i = 0; i < arr.GetLength(0); i++)                
                     for (int j = 0; j < arr.GetLength(1); j++)
                     {
-                        int sosedi = (i > 0 ? arr[i - 1, j] : 0)
+                        int adjacentElements = (i > 0 ? arr[i - 1, j] : 0)
                                      + (i < arr.GetLength(0) - 1 ? arr[i + 1, j] : 0)
                                      + (j > 0 ? arr[i, j - 1] : 0)
                                      + (j < arr.GetLength(1) - 1 ? arr[i, j + 1] : 0);
-                        if (arr[i, j] > sosedi)
+                        if (arr[i, j] > adjacentElements)
                             cntMax++;
-                    }
-                }
-            }
+                    }               
 
             return cntMax;
         }
@@ -120,16 +105,12 @@ namespace learned
             if (size < 0)
                 throw new ArgumentException("Недопустимый размер матрицы");
             char[,] arr = new char[size, size];
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
+            for (int i = 0; i < arr.GetLength(0); i++)            
+                for (int j = 0; j < arr.GetLength(1); j++)                
                     if ((i < j && arr.GetLength(1) - j - 1 < i) ||
                         (i > j && arr.GetLength(1) - j - 1 > i))
                         arr[i, j] = '0';
                     else arr[i, j] = '1';
-                }
-            }
 
             return arr;
         }
