@@ -45,14 +45,8 @@ namespace learned
 
         public static int[] SwapFirstAndSecondHalfArray(int[] arr)
         {
-            bool flag = arr.Length % 2 == 0;
             for (int i = 0; i < arr.Length / 2; i++)
-            {
-                if (flag)
-                    NumberHelper.Swap(ref arr[i], ref arr[arr.Length / 2 + i]);
-                else
-                    NumberHelper.Swap(ref arr[i], ref arr[arr.Length / 2 + i + 1]);
-            }
+                NumberHelper.Swap(ref arr[i], ref arr[arr.Length / 2 + i + (arr.Length % 2 == 0 ? 0 : 1)]);
 
             return arr;
         }
@@ -82,7 +76,7 @@ namespace learned
             return arr;
         }
 
-        public static (int, long) FindingAbsMaxAndSumAfterZero(int[] arr)
+        static public (int, long) FindingAbsMaxAndSumAfterZero(int[] arr)
         {
             int max = arr[0];
             long sumAfterZero = 0;

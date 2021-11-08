@@ -23,11 +23,18 @@ namespace learned
             return arr;
         }
 
-        public static int GetNumbersLessThanASquare(int num) =>
-            (int)(Math.Sqrt(num));
+        public static int GetNumbersLessThanASquare(int num)
+        {
+            if (num < 0)
+                throw new ArgumentException("Число должно быть больше нуля");
+
+            return (int)Math.Sqrt(num);
+        }
+            
 
         public static int GetGreatestDivisor(int num)
         {
+            num = Math.Abs(num);
             for (int i = num / 2; i >= 2; i--)
                 if (num % i == 0)
                     return i;
@@ -120,9 +127,8 @@ namespace learned
                     count++;
                 }
             }
-
-            int[] arrTwo = new int[count];
-            Array.Copy(arrTmp, arrTwo, count);
+            int[] arrTwo = arrTmp[..count];            
+            
             return arrTwo;
         }
 

@@ -97,9 +97,8 @@ namespace learned
             return str;
         }
 
-        public static bool IsRectangle(double a, double b, double c)
-        {
-            return a + b > c && a + c > b && b + c > a;
-        }
+        public static bool IsRectangle(double a, double b, double c) => 
+            a + b > c && a + c > b && b + c > a;
+        
     }
 }

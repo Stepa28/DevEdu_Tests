@@ -33,11 +33,16 @@ namespace learned.Tests
         [TestCase(26, 5)]
         [TestCase(0, 0)]
         [TestCase(15, 3)]
-        [TestCase(10000, 100)]
+        [TestCase(10000, 100)]        
         public static void GetNumbersLessThanASquareTest(int num, int expented)
         {
             int actual = Homework4.GetNumbersLessThanASquare(num);
             Assert.AreEqual(expented, actual);
+        }
+        [Test]
+        public static void GetNumbersLessThanASquareNegativTest()
+        {
+            Assert.Throws<ArgumentException>(() => Homework4.GetNumbersLessThanASquare(-498));
         }
 
         //Задание 3
@@ -46,10 +51,17 @@ namespace learned.Tests
         [TestCase(229, 1)]
         [TestCase(794, 397)]
         [TestCase(81, 27)]
+        [TestCase(0, 1)]
+        [TestCase(-46, 23)]
         public static void GetGreatestDivisorTest(int num, int expented)
         {
             int actual = Homework4.GetGreatestDivisor(num);
             Assert.AreEqual(expented, actual);
+        }
+        [Test]
+        public static void GetGreatestDivisorNegativTest()
+        {
+            Assert.Throws<OverflowException>(() => Homework4.GetGreatestDivisor(int.MinValue));
         }
 
         //Задание 4

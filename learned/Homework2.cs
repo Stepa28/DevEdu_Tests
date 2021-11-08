@@ -43,6 +43,6 @@ namespace learned
         }
 
         public static bool GetZeroFractionalPart(double num) => 
-            num == (int)num;
+            num % 1 == 0;
     }
 }
