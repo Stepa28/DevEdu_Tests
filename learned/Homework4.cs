@@ -4,14 +4,17 @@ namespace learned
 {
     public class Homework4
     {
-        public static int[] GetNumbersDivided(int num)
+        static public int[] GetNumbersDivided(int num)
         {
-            if (num > 1000)
-                throw new ArgumentException("Входное А больше 1000");
-            if (num == 0)
-                throw new ArgumentException("Входное А == 0");
-            if (num < 0)
-                throw new ArgumentException("Входное А < 0");
+            switch (num)
+            {
+                case > 1000:
+                    throw new ArgumentException("Входное А больше 1000");
+                case 0:
+                    throw new ArgumentException("Входное А == 0");
+                case < 0:
+                    throw new ArgumentException("Входное А < 0");
+            }
             int[] arr = new int[1000 / num];
             int count = 0;
             for (int i = num; i <= 1000; i += num)
@@ -23,7 +26,7 @@ namespace learned
             return arr;
         }
 
-        public static int GetNumbersLessThanASquare(int num)
+        static public int GetNumbersLessThanASquare(int num)
         {
             if (num < 0)
                 throw new ArgumentException("Число должно быть больше нуля");
@@ -32,7 +35,7 @@ namespace learned
         }
             
 
-        public static int GetGreatestDivisor(int num)
+        static public int GetGreatestDivisor(int num)
         {
             num = Math.Abs(num);
             for (int i = num / 2; i >= 2; i--)
@@ -41,7 +44,7 @@ namespace learned
             return 1;
         }
 
-        public static long GetSumOfMultiplesOf7InARange(int a, int b)
+        static public long GetSumOfMultiplesOf7InARange(int a, int b)
         {
             long sum = 0;
             for (long i = Math.Min(a, b); i < Math.Max(a, b); i++)
@@ -56,7 +59,7 @@ namespace learned
             return sum;
         }
 
-        public static int FindingTheCommonDivisor(int a, int b)
+        static public int FindingTheCommonDivisor(int a, int b)
         {
             a = Math.Abs(a);
             b = Math.Abs(b);
@@ -71,39 +74,39 @@ namespace learned
             return a;
         }
 
-        public static int FindingTheCubeRoot(int num)
+        static public int FindingTheCubeRoot(int num)
         {
             if (num < 0)
                 throw new ArgumentException("Число должно быть положительным");
-            int min = 0, max = (int)Math.Pow(int.MaxValue, 1.0 / 3), midle = -1;
-            while (Math.Pow(midle, 3) != num)
+            int min = 0, max = (int)Math.Pow(int.MaxValue, 1.0 / 3), middle = -1;
+            while (Math.Pow(middle, 3) != num)
             {
-                midle = (min + max) / 2;
-                if (midle == min)
+                middle = (min + max) / 2;
+                if (middle == min)
                     throw new ArgumentException("У числа нет кубического корня");
-                if (Math.Pow(midle, 3) > num)
-                    max = midle;
+                if (Math.Pow(middle, 3) > num)
+                    max = middle;
                 else
-                    min = midle;
+                    min = middle;
             }
 
-            return midle;
+            return middle;
         }
 
-        public static int GetNumberOfOddDigits(int num)
+        static public int GetNumberOfOddDigits(int num)
         {
             int coutOdd = 0;
             sbyte[] arr = NumberHelper.GetDecompositionNumber(num);
-            for (int i = 0; i < arr.Length; i++)            
-                if (Math.Abs(arr[i]) % 2 == 1) coutOdd++;            
+            foreach (sbyte t in arr)
+                if (Math.Abs(t) % 2 == 1) coutOdd++;
 
             return coutOdd;
         }
 
-        public static int GetMirrorNumber(int num) =>
+        static public int GetMirrorNumber(int num) =>
             NumberHelper.GetMirrorNumber(num);        
 
-        public static int[] GetNubbersInRangeSumEvenDigitsGreaterOdd(int num)
+        static public int[] GetNumbersInRangeSumEvenDigitsGreaterOdd(int num)
         {
             if (num < 1)
                 throw new ArgumentException("Неверное входное значение");
@@ -132,7 +135,7 @@ namespace learned
             return arrTwo;
         }
 
-        public static bool GetThereSameNumbers(int numOne, int numTwo)
+        static public bool GetThereSameNumbers(int numOne, int numTwo)
         {
             sbyte[] arrOne = NumberHelper.GetDecompositionNumber(Math.Abs(numOne));
             sbyte[] arrTwo = NumberHelper.GetDecompositionNumber(Math.Abs(numTwo));

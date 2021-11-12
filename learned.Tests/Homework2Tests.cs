@@ -3,7 +3,7 @@ using System;
 
 namespace learned.Tests
 {
-    public class Homework2Tests
+    public static class Homework2Tests
     {
         //Задание 1
         [TestCase(548, 17)]

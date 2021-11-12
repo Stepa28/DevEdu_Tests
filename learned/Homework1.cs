@@ -2,12 +2,12 @@
 
 namespace learned
 {
-    public class Homework1
+    static public class Homework1
     {
-        public static string GetHelloByeString(int a, double b) => 
+        static public string GetHelloByeString(int a, double b) => 
             $"привет, {a}!\n{a} + {b} = {a + b}\nпока, {b}...";
 
-        public static double EquationSolution(double a, double b)
+        static public double EquationSolution(double a, double b)
         {
             if (b - a == 0)
                 throw new DivideByZeroException("Деление на ноль");
@@ -15,11 +15,11 @@ namespace learned
             return (a * 5 + Math.Pow(b, 4)) / (b - a);
         }
 
-        public static void SwapStrings(ref string s1,ref string s2) =>        
+        static public void SwapStrings(ref string s1,ref string s2) =>        
             NumberHelper.Swap(ref s1, ref s2);       
 
 
-        public static double FirstDegreeEquationSolution(double a, double b, double c)
+        static public double FirstDegreeEquationSolution(double a, double b, double c)
         {
             if (a == 0)
                 throw new DivideByZeroException("Деление на ноль");

@@ -1,13 +1,9 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace learned.Tests
 {
-    class Homework4Tests
+    static class Homework4Tests
     {
         //Задание 1
         [TestCase(100, new int[] { 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 })]
@@ -15,10 +11,10 @@ namespace learned.Tests
         [TestCase(500, new int[] { 500, 1000 })]
         [TestCase(400, new int[] { 400, 800 })]
         [TestCase(50, new int[] { 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000 })]
-        public static void GetNumbersDividedTest(int num, int[] expented)
+        public static void GetNumbersDividedTest(int num, int[] expected)
         {
             int[] actual = Homework4.GetNumbersDivided(num);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
         [TestCase(0)]
         [TestCase(165465)]
@@ -34,10 +30,10 @@ namespace learned.Tests
         [TestCase(0, 0)]
         [TestCase(15, 3)]
         [TestCase(10000, 100)]        
-        public static void GetNumbersLessThanASquareTest(int num, int expented)
+        public static void GetNumbersLessThanASquareTest(int num, int expected)
         {
             int actual = Homework4.GetNumbersLessThanASquare(num);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public static void GetNumbersLessThanASquareNegativTest()
@@ -53,10 +49,10 @@ namespace learned.Tests
         [TestCase(81, 27)]
         [TestCase(0, 1)]
         [TestCase(-46, 23)]
-        public static void GetGreatestDivisorTest(int num, int expented)
+        public static void GetGreatestDivisorTest(int num, int expected)
         {
             int actual = Homework4.GetGreatestDivisor(num);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public static void GetGreatestDivisorNegativTest()
@@ -70,10 +66,10 @@ namespace learned.Tests
         [TestCase(0, 1000, 71071)]
         [TestCase(-4989843, 45654, -1778316730498)]
         [TestCase(0, int.MaxValue, 329406144633559917)]
-        public static void GetSumOfMultiplesOf7InARangeTest(int a, int b, long expented)
+        public static void GetSumOfMultiplesOf7InARangeTest(int a, int b, long expected)
         {
             long actual = Homework4.GetSumOfMultiplesOf7InARange(a, b);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         //Задание 5
@@ -82,10 +78,10 @@ namespace learned.Tests
         [TestCase(64510, 55465, 5)]
         [TestCase(int.MinValue + 1, 645684, 1)]
         [TestCase(int.MaxValue, 41561464, 1)]
-        public static void FindingTheCommonDivisorTest(int a, int b, int expented)
+        public static void FindingTheCommonDivisorTest(int a, int b, int expected)
         {
             int actual = Homework4.FindingTheCommonDivisor(a, b);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public static void FindingTheCommonDivisorNegativeTest()
@@ -99,10 +95,10 @@ namespace learned.Tests
         [TestCase(64, 4)]
         [TestCase(125, 5)]
         [TestCase(125, 5)]
-        public static void FindingTheCubeRootTest(int num, int expented)
+        public static void FindingTheCubeRootTest(int num, int expected)
         {
             int actual = Homework4.FindingTheCubeRoot(num);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
         [TestCase(-645)]
         [TestCase(0)]
@@ -142,16 +138,16 @@ namespace learned.Tests
         [TestCase(25, new int[] { 2, 4, 6, 8, 12, 14, 16, 18, 20, 21, 22, 24 })]
         [TestCase(30, new int[] { 2, 4, 6, 8, 12, 14, 16, 18, 20, 21, 22, 24, 26, 28 })]
         [TestCase(45, new int[] { 2, 4, 6, 8, 12, 14, 16, 18, 20, 21, 22, 24, 26, 28, 34, 36, 38, 40, 41, 42, 43, 44 })]
-        public static void GetNubbersInRangeSumEvenDigitsGreaterOddTest(int num, int[] expected)
+        public static void GetNumbersInRangeSumEvenDigitsGreaterOddTest(int num, int[] expected)
         {
-            int[] actual = Homework4.GetNubbersInRangeSumEvenDigitsGreaterOdd(num);
+            int[] actual = Homework4.GetNumbersInRangeSumEvenDigitsGreaterOdd(num);
             Assert.AreEqual(expected, actual);
         }
         [TestCase(-4654)]
         [TestCase(0)]        
-        public static void GetNubbersInRangeSumEvenDigitsGreaterOddNegativTest(int num)
+        public static void GetNumbersInRangeSumEvenDigitsGreaterOddNegativTest(int num)
         {
-            Assert.Throws<ArgumentException>(() => Homework4.GetNubbersInRangeSumEvenDigitsGreaterOdd(num));
+            Assert.Throws<ArgumentException>(() => Homework4.GetNumbersInRangeSumEvenDigitsGreaterOdd(num));
         }
 
         //Задание 10

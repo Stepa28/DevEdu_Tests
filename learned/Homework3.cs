@@ -4,10 +4,10 @@ namespace learned
 {
     public class Homework3
     {
-        public static double GetFunctionByCondition(double a, double b) => 
+        static public double GetFunctionByCondition(double a, double b) => 
             a > b ? a + b : b > a ? a - b : a * b;
 
-        public static int DetermineQuadrant(double x, double y)
+        static public int DetermineQuadrant(double x, double y)
         {            
             if (x > 0)
             {
@@ -19,14 +19,14 @@ namespace learned
             {
                 if (y > 0) return 4;
                 if (y < 0) return 3;
-                throw new ArgumentException("Точка лежит на пересечении третьей и четвертой четверти");
+                throw new ArgumentException("Точка лежит на пересечении третьей и четвёртой четверти");
             }
-            if (y > 0) throw new ArgumentException("Точка лежит на пересечении первой и четвертой четверти");
+            if (y > 0) throw new ArgumentException("Точка лежит на пересечении первой и четвёртой четверти");
             if (y < 0) throw new ArgumentException("Точка лежит на пересечении второй и третьей четверти");
             throw new ArgumentException("Точка лежит в центре координатной плоскости");
         }
 
-        public static double[] SortingThreeNumbers(double a, double b, double c)
+        static public double[] SortingThreeNumbers(double a, double b, double c)
         {
             //double[] arr = new[] { a, b, c };
             //Array.Sort(arr);
@@ -39,7 +39,7 @@ namespace learned
             return arr;           
         }
 
-        public static double[] ResolveQuadEquation(double a, double b, double c)
+        static public double[] ResolveQuadEquation(double a, double b, double c)
         {
             if (a == 0)
             {
@@ -55,10 +55,10 @@ namespace learned
             return new double[] { -b / (2 * a) };
         }
 
-        public static string ToStringTwoDigitNumber(int num)
+        static public string ToStringTwoDigitNumber(int num)
         {
             if (num > 99 || num < 10)
-                throw new ArgumentOutOfRangeException("Число не двухзначное");
+                throw new ArgumentOutOfRangeException(nameof(num),"Число не двухзначное");
             string str = null;
             sbyte[] arr = NumberHelper.GetDecompositionNumber(num);
             if (arr[1] == 1)
@@ -97,7 +97,7 @@ namespace learned
             return str;
         }
 
-        public static bool IsRectangle(double a, double b, double c) => 
+        static public bool IsRectangle(double a, double b, double c) => 
             a + b > c && a + c > b && b + c > a;
         
     }

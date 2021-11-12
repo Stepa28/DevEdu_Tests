@@ -1,13 +1,9 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace learned.Tests
 {
-    class Homework5Tests
+    static class Homework5Tests
     {
         //Задание 1
         [TestCase(new int[] { -35, 11, 76, -21, 15, 35, 91, 90, 57, -88, 38, -25, 69, 35, -18, -48, -61, -34, -4, -65, 34, -7, 7, -84, -49 }, 10)]
@@ -15,20 +11,20 @@ namespace learned.Tests
         [TestCase(new int[] { -32, 28, -57, -24, -68, 51, 76, -74, 47, -6, 67, 14, 73, 1, 8, 82, 98, 76, 9, -35, -28, -42, 65, 98, 66 }, 16)]
         [TestCase(new int[] { -13, -29, 39, 87, 31, 58, 18, -96, 53, 98, 64, -60, -22, -68, 41, -54, -88, 78, -75, 19, -9, 42, 93, 10, 18 }, 14)]
         [TestCase(new int[] { 47, -57, -6, -88, -8, 65, 44, 0, -56, 78, -5, 77, 75, -48, -84, -27, 63, -3, -60, -39, -34, 30, 73, -62, 28 }, 14)]
-        public static void GetNumberOfEvenAndOddElementsTestEven(int[] arr, int expented)
+        public static void GetNumberOfEvenAndOddElementsTestEven(int[] arr, int expected)
         {
             Homework5.GetNumberOfEvenAndOddElements(arr, out int actual,out int cntOdd);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
         [TestCase(new int[] { -35, 11, 76, -21, 15, 35, 91, 90, 57, -88, 38, -25, 69, 35, -18, -48, -61, -34, -4, -65, 34, -7, 7, -84, -49 }, 15)]
         [TestCase(new int[] { -88, -80, 7, -37, 3, 31, -17, 57, -86, 80, -26, -29, -26, -77, 33, -56, -64, -69, -64, 7, 31, 59, 47, 33, -16 }, 15)]
         [TestCase(new int[] { -32, 28, -57, -24, -68, 51, 76, -74, 47, -6, 67, 14, 73, 1, 8, 82, 98, 76, 9, -35, -28, -42, 65, 98, 66 }, 9)]
         [TestCase(new int[] { -13, -29, 39, 87, 31, 58, 18, -96, 53, 98, 64, -60, -22, -68, 41, -54, -88, 78, -75, 19, -9, 42, 93, 10, 18 }, 11)]
         [TestCase(new int[] { 47, -57, -6, -88, -8, 65, 44, 0, -56, 78, -5, 77, 75, -48, -84, -27, 63, -3, -60, -39, -34, 30, 73, -62, 28 }, 11)]
-        public static void GetNumberOfEvenAndOddElementsTestOdd(int[] arr, int expented)
+        public static void GetNumberOfEvenAndOddElementsTestOdd(int[] arr, int expected)
         {
             Homework5.GetNumberOfEvenAndOddElements(arr, out int cntEven, out int actual);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         //Задание 2
@@ -42,10 +38,10 @@ namespace learned.Tests
             new int[] { -13, -29, -42, 87, 31, 118, 18, -96, -78, 98, 64, 162, -22, -68, -90, -54, -88, -142, -75, 19, -56, 42, 93, 135, 18 })]
         [TestCase(new int[] { 47, -57, -6, -88, -8, 65, 44, 0, -56, 78, -5, 77, 75, -48, -84, -27, 63, -3, -60, -39, -34, 30, 73, -62, 28 }, 
             new int[] { 47, -57, -10, -88, -8, -96, 44, 0, 44, 78, -5, 73, 75, -48, 27, -27, 63, 36, -60, -39, -99, 30, 73, 103, 28 })]
-        public static void ReplaceThirdItemWithTheSumOfThePreviousTwoTest(int[] arr, int[] expented)
+        public static void ReplaceThirdItemWithTheSumOfThePreviousTwoTest(int[] arr, int[] expected)
         {
             int[] actual = Homework5.ReplaceThirdItemWithTheSumOfThePreviousTwo(arr);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
         [TestCase(new int[] { int.MaxValue, int.MaxValue, 0 })]
         [TestCase(new int[] { int.MinValue, int.MinValue, 0 })]
@@ -65,10 +61,10 @@ namespace learned.Tests
             new int[] { -42, 11, 75, 71, -41, 65, -12, 31, -87, 78, 61, -60, 43, -86, -75, -93, 61, -10, -73, -61 })]
         [TestCase(new int[] { -4, 20, 33, 67, 23 }, new int[] { -85, -30, 87, -89, -86 },
             new int[] { -4, 20, 33, 67, 23, -85, -30, 87, -89, -86 })]
-        public static void GluingTwoArraysTest(int[] arrOne, int[] arrTwo, int[] expented)
+        public static void GluingTwoArraysTest(int[] arrOne, int[] arrTwo, int[] expected)
         {
             int[] actual = Homework5.GluingTwoArrays(arrOne, arrTwo);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         //Задание 4
@@ -80,10 +76,10 @@ namespace learned.Tests
         [TestCase(new int[] { -78, 58 }, new int[] { 58, -78 })]
         [TestCase(new int[] { -21, -88, 67, -10, -47, -2, -98, -58, 80, -86, 80, 63, -85, -47, -70, -92, -28, 85, 95, -8 },
             new int[] { 80, 63, -85, -47, -70, -92, -28, 85, 95, -8, - 21, -88, 67, -10, -47, -2, -98, -58, 80, -86 })]
-        public static void SwapFirstAndSecondHalfArrayTest(int[] arr, int[] expented)
+        public static void SwapFirstAndSecondHalfArrayTest(int[] arr, int[] expected)
         {
             int[] actual = Homework5.SwapFirstAndSecondHalfArray(arr);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         //Задание 5
@@ -97,10 +93,10 @@ namespace learned.Tests
             new int[] { 97, -71, -29, 2, -80, -55, -65, 90, 86, -68 })]
         [TestCase(new int[] { -71, -29, 2, -80, -55, -65, 90, 86, -68, 97 }, 10,
             new int[] { -71, -29, 2, -80, -55, -65, 90, 86, -68, 97 })]
-        public static void ShiftArrayToRightByNTest(int[] arr, int shift, int[] expented)
+        public static void ShiftArrayToRightByNTest(int[] arr, int shift, int[] expected)
         {
             int[] actual = Homework5.ShiftArrayToRightByN(arr, shift);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
         [TestCase(new int[] { 0, 0 }, -1)]
         [TestCase(new int[] { 0, 0 }, -9848486)]
@@ -122,10 +118,10 @@ namespace learned.Tests
             new int[] { })]
         [TestCase(new int[] { -80, 48 },
             new int[] { 48, -80 })]
-        public static void SwapEvenAndOddPositionTest(int[] arr, int[] expented)
+        public static void SwapEvenAndOddPositionTest(int[] arr, int[] expected)
         {
             int[] actual = Homework5.SwapEvenAndOddPosition(arr);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         //Задание 7        
@@ -136,9 +132,9 @@ namespace learned.Tests
         [TestCase(new int[] { -81, 87, -99, 23, -68 }, -99, 0)]
         public static void FindingAbsMaxAndSumAfterZeroTest(int[] arr, int maxAbs, long sumAfterZero)
         {
-            (int, long) expented = (maxAbs, sumAfterZero);
+            (int, long) expected = (maxAbs, sumAfterZero);
             (int, long) actual = Homework5.FindingAbsMaxAndSumAfterZero(arr);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
         [Test]
         public static void FindingAbsMaxAndSumAfterZeroNegativTest()
@@ -157,10 +153,10 @@ namespace learned.Tests
             new int[] { -44, 44 })]
         [TestCase(new int[] { 8, 49, -13, 29, -32, 96, -24, -46, -41, 18, 99, -30, -91, 70, -40, 35, -62, 22, 82, 5, -42, -50, -54, -28, 99, -25, 93, 58, 33, -1, -32, -86, -29, -5, -99, -60, 90, -28, 2, 81 },
             new int[] { -99, -91, -86, -62, -60, -54, -50, -46, -42, -41, -40, -32, -32, -30, -29, -28, -28, -25, -24, -13, -5, -1, 2, 5, 8, 18, 22, 29, 33, 35, 49, 58, 70, 81, 82, 90, 93, 96, 99, 99 })]
-        public static void ShortInsertTest(int[] arr, int[] expented)
+        public static void ShortInsertTest(int[] arr, int[] expected)
         {
             int[] actual = Homework5.ShortInsert(arr);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         //Задание 9
@@ -174,10 +170,10 @@ namespace learned.Tests
             new int[] { -44, 44 })]
         [TestCase(new int[] { 8, 49, -13, 29, -32, 96, -24, -46, -41, 18, 99, -30, -91, 70, -40, 35, -62, 22, 82, 5, -42, -50, -54, -28, 99, -25, 93, 58, 33, -1, -32, -86, -29, -5, -99, -60, 90, -28, 2, 81 },
             new int[] { -99, -91, -86, -62, -60, -54, -50, -46, -42, -41, -40, -32, -32, -30, -29, -28, -28, -25, -24, -13, -5, -1, 2, 5, 8, 18, 22, 29, 33, 35, 49, 58, 70, 81, 82, 90, 93, 96, 99, 99 })]
-        public static void ShortSelectTest(int[] arr, int[] expented)
+        public static void ShortSelectTest(int[] arr, int[] expected)
         {
             int[] actual = Homework5.ShortSelect(arr);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
     }
 }

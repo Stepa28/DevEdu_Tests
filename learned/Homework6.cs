@@ -2,9 +2,9 @@
 
 namespace learned
 {
-    public class Homework6
+    static public class Homework6
     {
-        public static int[,] InversionFrame(int[,] arr)
+        static public int[,] InversionFrame(int[,] arr)
         {
             if (arr.Length == 1)
                 arr[0, 0] *= -1;
@@ -26,7 +26,7 @@ namespace learned
             return arr;
         }
 
-        public static int[,] MultiplicationTable(int size)
+        static public int[,] MultiplicationTable(int size)
         {
             if (size < 0)
                 throw new ArgumentException("Недопустимый размер матрицы");
@@ -38,7 +38,7 @@ namespace learned
             return arr;
         }
 
-        public static char[,] GetChessBoard(int size)
+        static public char[,] GetChessBoard(int size)
         {
             if (size < 0)
                 throw new ArgumentException("Недопустимый размер матрицы");
@@ -51,7 +51,7 @@ namespace learned
             return arr;
         }
 
-        public static bool RespectedAntiqueRules(int[,] arr)
+        static public bool RespectedAntiqueRules(int[,] arr)
         {
             for (int i = 0; i < arr.GetLength(0); i++)            
                 for (int j = 1; j < arr.GetLength(1) - 1; j++)
@@ -61,7 +61,7 @@ namespace learned
             return false;
         }
 
-        public static (double, double, double[], double[]) GetStoreIncome(double[,] arr)
+        static public (double, double, double[], double[]) GetStoreIncome(double[,] arr)
         {
             double min = double.MaxValue;
             double max = double.MinValue;
@@ -82,25 +82,25 @@ namespace learned
             return (min, max, sumMonths, sumOneShop);
         }
 
-        public static int GetMoreThanTheirNeighors(int[,] arr)
+        static public int GetMoreThanTheirNeighbors(int[,] arr)
         {
             int cntMax = 0;
-            if (arr.Length != 1)            
-                for (int i = 0; i < arr.GetLength(0); i++)                
-                    for (int j = 0; j < arr.GetLength(1); j++)
-                    {
-                        int adjacentElements = (i > 0 ? arr[i - 1, j] : 0)
-                                     + (i < arr.GetLength(0) - 1 ? arr[i + 1, j] : 0)
-                                     + (j > 0 ? arr[i, j - 1] : 0)
-                                     + (j < arr.GetLength(1) - 1 ? arr[i, j + 1] : 0);
-                        if (arr[i, j] > adjacentElements)
-                            cntMax++;
-                    }               
+            if (arr.Length == 1) return cntMax;
+            for (int i = 0; i < arr.GetLength(0); i++)                
+            for (int j = 0; j < arr.GetLength(1); j++)
+            {
+                int adjacentElements = (i > 0 ? arr[i - 1, j] : 0)
+                                       + (i < arr.GetLength(0) - 1 ? arr[i + 1, j] : 0)
+                                       + (j > 0 ? arr[i, j - 1] : 0)
+                                       + (j < arr.GetLength(1) - 1 ? arr[i, j + 1] : 0);
+                if (arr[i, j] > adjacentElements)
+                    cntMax++;
+            }
 
             return cntMax;
         }
 
-        public static char[,] GetHourglass(int size)
+        static public char[,] GetHourglass(int size)
         {
             if (size < 0)
                 throw new ArgumentException("Недопустимый размер матрицы");
@@ -115,12 +115,12 @@ namespace learned
             return arr;
         }
 
-        public static long[,] MultiplicationMatrix(int[,] arrOne, int[,] arrTwo)
+        static public long[,] MultiplicationMatrix(int[,] arrOne, int[,] arrTwo)
         {
             long[,] arrThree = new long[arrOne.GetLength(0), arrTwo.GetLength(1)];
             if (arrOne.GetLength(1) != arrTwo.GetLength(0))
                 throw new ArgumentException(
-                    "Умножение не возможно! Количество столбцов первой матрицы не равно количеству строк второй матрицы.");
+                    "Умножение не возможно! Количество столбцов первой матрицы не ровно количеству строк второй матрицы.");
 
             for (int i = 0; i < arrOne.GetLength(0); i++)
             for (int j = 0; j < arrTwo.GetLength(1); j++)

@@ -2,32 +2,32 @@
 
 namespace learned
 {
-    public class Homework5
+    static public class Homework5
     {
-        public static void GetNumberOfEvenAndOddElements(int[] arr, out int cntEven, out int cntOdd)
+        static public void GetNumberOfEvenAndOddElements(int[] arr, out int cntEven, out int cntOdd)
         {
             cntEven = 0;
             cntOdd = 0;
-            for (int i = 0; i < arr.Length; i++)            
-                if (arr[i] % 2 == 0)
+            foreach (int t in arr)
+                if (t % 2 == 0)
                     cntEven++;
                 else
-                    cntOdd++;            
+                    cntOdd++;
         }
 
-        public static int[] ReplaceThirdItemWithTheSumOfThePreviousTwo(int[] arr)
+        static public int[] ReplaceThirdItemWithTheSumOfThePreviousTwo(int[] arr)
         {
             for (int i = 2; i < arr.Length; i += 3)
             {
                 if (Math.Abs((long)arr[i - 2] + arr[i - 1]) > int.MaxValue)
-                    throw new ArgumentOutOfRangeException("Переполнение int");
+                    throw new ArgumentOutOfRangeException(nameof(arr),"Переполнение int");
                 arr[i] = arr[i - 2] + arr[i - 1];
             }
 
             return arr;
         }
 
-        public static int[] GluingTwoArrays(int[] arrOne, int[] arrTwo)
+        static public int[] GluingTwoArrays(int[] arrOne, int[] arrTwo)
         {
             int[] arrGlue = new int[arrOne.Length + arrTwo.Length];
             for (int i = 0; i < arrOne.Length; i++)
@@ -43,7 +43,7 @@ namespace learned
             return arrGlue;
         }
 
-        public static int[] SwapFirstAndSecondHalfArray(int[] arr)
+        static public int[] SwapFirstAndSecondHalfArray(int[] arr)
         {
             for (int i = 0; i < arr.Length / 2; i++)
                 NumberHelper.Swap(ref arr[i], ref arr[arr.Length / 2 + i + (arr.Length % 2 == 0 ? 0 : 1)]);
@@ -51,10 +51,10 @@ namespace learned
             return arr;
         }
 
-        public static int[] ShiftArrayToRightByN(int[] arr, int shift)
+        static public int[] ShiftArrayToRightByN(int[] arr, int shift)
         {
             if (shift < 0)
-                throw new ArgumentOutOfRangeException("Сдвиг должен быть положительным");
+                throw new ArgumentOutOfRangeException(nameof(shift),"Сдвиг должен быть положительным");
             if (shift % arr.Length != 0)
                 for (int j = 0; j < shift; j++)
                 {
@@ -69,7 +69,7 @@ namespace learned
             return arr;
         }
 
-        public static int[] SwapEvenAndOddPosition(int[] arr)
+        static public int[] SwapEvenAndOddPosition(int[] arr)
         {
             for (int i = 1; i < arr.Length; i += 2)
                 NumberHelper.Swap(ref arr[i], ref arr[i - 1]);
@@ -81,20 +81,20 @@ namespace learned
             int max = arr[0];
             long sumAfterZero = 0;
             bool flag = false;
-            for (int i = 0; i < arr.Length; i++)
+            foreach (int t in arr)
             {
-                if (Math.Abs(arr[i]) > Math.Abs(max))
-                    max = arr[i];
+                if (Math.Abs(t) > Math.Abs(max))
+                    max = t;
                 if (flag)
-                    sumAfterZero += arr[i];
-                if (arr[i] == 0)
+                    sumAfterZero += t;
+                if (t == 0)
                     flag = true;
             }
 
             return (max, sumAfterZero);
         }
 
-        public static int[] ShortInsert(int[] arr)
+        static public int[] ShortInsert(int[] arr)
         {
             int[] arrayTmp = new int[arr.Length];
             for (int i = 0; i < arr.Length; i++)
@@ -112,7 +112,7 @@ namespace learned
             return arrayTmp;
         }
 
-        public static int[] ShortSelect(int[] arr)
+        static public int[] ShortSelect(int[] arr)
         {
             for (int i = 0; i < arr.Length - 1; i++)
             {

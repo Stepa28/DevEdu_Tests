@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace learned.Tests
 {
@@ -50,10 +46,10 @@ namespace learned.Tests
         [TestCase(7.5, 2.5, 6.2, new double[] { 2.5, 6.2, 7.5 })]
         [TestCase(6.2, 6.2, 2.5, new double[] { 2.5, 6.2, 6.2 })]
         [TestCase(0, 0, 0, new double[] { 0, 0, 0 })]
-        public static void SortingThreeNumbersTest(double a, double b, double c, double[] expented)
+        public static void SortingThreeNumbersTest(double a, double b, double c, double[] expected)
         {
             double[] actual = Homework3.SortingThreeNumbers(a, b, c);
-            Assert.AreEqual(expented, actual);
+            Assert.AreEqual(expected, actual);
         }
 
         //Задание 4
