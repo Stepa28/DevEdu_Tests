@@ -4,6 +4,7 @@ namespace learned
 {
     static public class Homework1
     {
+        
         static public string GetHelloByeString(int a, double b) => 
             $"привет, {a}!\n{a} + {b} = {a + b}\nпока, {b}...";
 
