@@ -58,7 +58,7 @@ namespace learned
         static public string ToStringTwoDigitNumber(int num)
         {
             if (num > 99 || num < 10)
-                throw new ArgumentOutOfRangeException(nameof(num),"Число не двухзначное");
+                throw new ArgumentOutOfRangeException(nameof(num),"Число не двузначное");
             string str = null;
             sbyte[] arr = NumberHelper.GetDecompositionNumber(num);
             if (arr[1] == 1)
@@ -97,8 +97,11 @@ namespace learned
             return str;
         }
 
-        static public bool IsRectangle(double a, double b, double c) => 
-            a + b > c && a + c > b && b + c > a;
-        
+        static public bool IsRectangle(double a, double b, double c)
+        {
+            if (a <= 0 || b <= 0 || c <= 0)
+                throw new ArgumentException("Стороны должны быть больше 0");
+            return a + b > c && a + c > b && b + c > a;
+        }
     }
 }

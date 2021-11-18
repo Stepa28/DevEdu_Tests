@@ -45,9 +45,16 @@ namespace learned
 
         static public int[] SwapFirstAndSecondHalfArray(int[] arr)
         {
-            for (int i = 0; i < arr.Length / 2; i++)
-                NumberHelper.Swap(ref arr[i], ref arr[arr.Length / 2 + i + (arr.Length % 2 == 0 ? 0 : 1)]);
-
+            // for (int i = 0; i < arr.Length / 2; i++)
+            //     NumberHelper.Swap(ref arr[i], ref arr[arr.Length / 2 + i + (arr.Length % 2 == 0 ? 0 : 1)]);
+            
+            //ShiftArrayToRightByN(arr, arr.Length / 2); //оказывается условие по другому звучит
+            
+            for (int i = 0, j = (int)Math.Ceiling(arr.Length / 2.0), k = arr.Length / 2; j < arr.Length; i++, j++, k++)
+            {
+                NumberHelper.Swap(ref arr[i], ref arr[j]);
+                NumberHelper.Swap(ref arr[j], ref arr[k]);
+            }
             return arr;
         }
 

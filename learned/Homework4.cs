@@ -130,9 +130,8 @@ namespace learned
                     count++;
                 }
             }
-            int[] arrTwo = arrTmp[..count];            
             
-            return arrTwo;
+            return arrTmp[..count];
         }
 
         static public bool GetThereSameNumbers(int numOne, int numTwo)

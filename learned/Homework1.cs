@@ -9,7 +9,7 @@ namespace learned
 
         static public double EquationSolution(double a, double b)
         {
-            if (b - a == 0)
+            if (b == a)
                 throw new DivideByZeroException("Деление на ноль");
 
             return (a * 5 + Math.Pow(b, 4)) / (b - a);

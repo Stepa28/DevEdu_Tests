@@ -94,10 +94,10 @@ namespace learned.Tests
         [TestCase(1468.1516516, false)]
         [TestCase(0.6546, false)]
         [TestCase(-9489.06541, false)]
-        public static void GetZeroFractionalPart(double num, bool expendet)
+        public static void GetZeroFractionalPart(double num, bool expected)
         {
             bool actual = Homework2.GetZeroFractionalPart(num);
-            Assert.AreEqual(expendet, actual);
+            Assert.AreEqual(expected, actual);
         }
     }
 }

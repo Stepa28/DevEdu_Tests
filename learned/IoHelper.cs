@@ -13,6 +13,7 @@ namespace learned
                 Console.Write($"{message} [{minValue} - {maxValue}]: ");
                 flag = int.TryParse(Console.ReadLine()?.Trim(), out num);
             } while (num < minValue || num > maxValue || !flag);
+            
             return num;
         }
         static public double SaveInput(double minValue, double maxValue, string message)
@@ -24,6 +25,7 @@ namespace learned
                 Console.Write($"{message} [{minValue} - {maxValue}]: ");
                 flag = double.TryParse(Console.ReadLine()?.Trim(), out num);
             } while (num < minValue || num > maxValue || !flag);
+            
             return num;
         }
         static public void PrintLine(int length)
@@ -33,7 +35,6 @@ namespace learned
                 Console.Write('-');
 
             Console.WriteLine('+');
-
         }
     }
 }

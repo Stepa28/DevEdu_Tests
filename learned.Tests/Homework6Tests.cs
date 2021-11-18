@@ -371,6 +371,12 @@ namespace learned.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [Test]
+        public static void GetStoreIncomeNegativTest()
+        {
+            Assert.Throws<ArgumentException>(() => Homework6.GetStoreIncome(new double[10, 4]));
+        }
+
         //Задание 6
         public enum GetMoreThanTheirNeighborsMockVariants
         {

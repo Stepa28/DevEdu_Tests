@@ -46,7 +46,7 @@ namespace learned
             
             for (int i = 0; i < arr.GetLength(0); i++)            
                 for (int j = 0; j < arr.GetLength(1); j++)                
-                    arr[i, j] = ((arr.GetLength(0) - i) + j + 1) % 2 == 0 ? '0' : '1';
+                    arr[i, j] = (arr.GetLength(0) - i + j + 1) % 2 == 0 ? '0' : '1';
 
             return arr;
         }
@@ -63,6 +63,9 @@ namespace learned
 
         static public (double, double, double[], double[]) GetStoreIncome(double[,] arr)
         {
+            if (arr.GetLength(0) != 10 || arr.GetLength(1) != 6)
+                throw new ArgumentException("Размер матриццы 10х6");
+            
             double min = double.MaxValue;
             double max = double.MinValue;
             double[] sumMonths = new double[arr.GetLength(1)];

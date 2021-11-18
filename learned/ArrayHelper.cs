@@ -3,23 +3,22 @@
 namespace learned
 {
     static class ArrayHelper
-    {        
+    {
+        private static Random _rnd = new();
         static public int[] GenerateArrayInt(int min, int max, int size)
         {
             int[] arr = new int[size];
-            Random rnd = new();
             for(int i = 0; i < size; i++)            
-                arr[i] = rnd.Next(min, max + 1);
+                arr[i] = _rnd.Next(min, max + 1);
             
             return arr;
         }
         static public int[,] GenerateArrayInt(int min, int max, int rows, int cols)
         {
             int[,] arr = new int[rows, cols];
-            Random rnd = new Random();
             for (int i = 0; i < rows; i++)            
                 for(int j = 0; j< cols; j++)                
-                    arr[i, j] = rnd.Next(min, max + 1);                              
+                    arr[i, j] = _rnd.Next(min, max + 1);                              
             
             return arr;
         }
@@ -27,19 +26,17 @@ namespace learned
         static public double[] GenerateArrayDouble(int min, int max, int size)
         {
             double[] arr = new double[size];
-            Random rnd = new();
             for (int i = 0; i < size; i++)            
-                arr[i] = rnd.NextDouble()*(max - min) + min;
+                arr[i] = _rnd.NextDouble()*(max - min) + min;
             
             return arr;
         }
         static public double[,] GenerateArrayDouble(int min, int max, int rows, int cols)
         {
             double[,] arr = new double[rows, cols];
-            Random rnd = new();
             for (int i = 0; i < rows; i++)            
                 for (int j = 0; j < cols; j++)                
-                    arr[i,j] = rnd.NextDouble() * (max - min) + min;                
+                    arr[i,j] = _rnd.NextDouble() * (max - min) + min;                
             
             return arr;
         }

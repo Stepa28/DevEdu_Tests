@@ -95,13 +95,18 @@ namespace learned.Tests
         //Задание 6
         [TestCase(4685.1456, 4654.4, 456, true)]
         [TestCase(4685.1456, 44.4, 49, false)]
-        [TestCase(0, 4654.4, 456, false)]
+        [TestCase(0.1, 4654.4, 456, false)]
         [TestCase(789, 4654.4, 456, false)]
         [TestCase(96, 449, 456, true)]
         public static void IsRectangleTest(double a, double b, double c, bool expected)
         {
             bool actual = Homework3.IsRectangle(a, b, c);
             Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void IsRectangleNegativTest()
+        {
+            Assert.Throws<ArgumentException>(() => Homework3.IsRectangle(0,-1,-5));
         }
     }
 }
